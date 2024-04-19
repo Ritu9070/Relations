@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relations</title>
+</head>
+<body>
+    <h2>Relations</h2>
+    <label for="searchInput">Enter name to find relations:</label>
+    <input type="text" id="searchInput">
+    <button onclick="searchRelations()">Search</button>
+    <p id="output"></p>
+
+    <script>
+        // Map to store strings along with their categories
+        let data = new Map();
+        data.set("ritu", "Brother");
+        data.set("shambhu", "Father");
+        data.set("kiran", "Mother");
+        data.set("subaran", "Brother");
+        data.set("savita", "Sister");
+        data.set("uma", "Sister");
+
+        function searchRelations() {
+            // Get the input value
+            let searchString = document.getElementById("searchInput").value.toLowerCase();
+            // Check if the string is in the map
+            if (data.has(searchString)) {
+                document.getElementById("output").innerText = searchString + " was found. It is your " + data.get(searchString) + ".";
+            } else {
+                document.getElementById("output").innerText = searchString + " was not found in your relations.";
+            }
+        }
+    </script>
+</body>
+</html>
